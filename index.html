@@ -7,48 +7,56 @@
     <title>Document</title>
   </head>
   <body>
-    Hi
     <script>
-        function parseQueryString(queryString) {
-          var params = {};
-          var pairs = queryString.slice(1).split("&");
-  
-          for (var i = 0; i < pairs.length; i++) {
-            var pair = pairs[i].split("=");
-            var key = decodeURIComponent(pair[0]);
-            var value = decodeURIComponent(pair[1] || "");
-  
-            if (params[key]) {
-              if (Array.isArray(params[key])) {
-                params[key].push(value);
-              } else {
-                params[key] = [params[key], value];
-              }
+      function parseQueryString(queryString) {
+        var params = {};
+        var pairs = queryString.slice(1).split("&");
+
+        for (var i = 0; i < pairs.length; i++) {
+          var pair = pairs[i].split("=");
+          var key = decodeURIComponent(pair[0]);
+          var value = decodeURIComponent(pair[1] || "");
+
+          if (params[key]) {
+            if (Array.isArray(params[key])) {
+              params[key].push(value);
             } else {
-              params[key] = value;
+              params[key] = [params[key], value];
             }
+          } else {
+            params[key] = value;
           }
-  
-          return params;
         }
-  
-        // Get the query string from the current URL
-        var url = window.location.search;
-        var parsedParams = parseQueryString(url);
-  
-        // Create a new image element
-        var image = document.createElement("img");
-  
-        // Set the source URL of the image
-        image.src = parsedParams.photo_url;
-  
-        // Set additional attributes (optional)
-        image.alt = "Image description";
-        image.width = 200;
-        image.height = 150;
-  
-        // Append the image element to the document body or any other element
-        document.body.appendChild(image);
-      </script>
+
+        return params;
+      }
+
+      // Get the query string from the current URL
+      var url = window.location.search;
+      var parsedParams = parseQueryString(url);
+
+      // Create the h2 element
+      var heading = document.createElement("h2");
+
+      // Set the text content of the h2 element
+      heading.textContent = `Hi ${parsedParams.username}`;
+
+      // Append the h2 element to the body of the document
+      document.body.appendChild(heading);
+
+      // Create a new image element
+      var image = document.createElement("img");
+
+      // Set the source URL of the image
+      image.src = parsedParams.photo_url;
+
+      // Set additional attributes (optional)
+      image.alt = "Image description";
+      image.width = 200;
+      image.height = 150;
+
+      // Append the image element to the document body or any other element
+      document.body.appendChild(image);
+    </script>
   </body>
 </html>
