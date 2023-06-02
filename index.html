@@ -5,6 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script>
+      function parseQueryString(queryString) {
+        var params = {};
+        var pairs = queryString.slice(1).split("&");
+
+        for (var i = 0; i < pairs.length; i++) {
+          var pair = pairs[i].split("=");
+          var key = decodeURIComponent(pair[0]);
+          var value = decodeURIComponent(pair[1] || "");
+
+          if (params[key]) {
+            if (Array.isArray(params[key])) {
+              params[key].push(value);
+            } else {
+              params[key] = [params[key], value];
+            }
+          } else {
+            params[key] = value;
+          }
+        }
+
+        return params;
+      }
+
+      // Get the query string from the current URL
+      var url = window.location.search;
+      var parsedParams = parseQueryString(url);
+
+      // Create a new image element
+      var image = document.createElement("img");
+
+      // Set the source URL of the image
+      image.src = parasedParams.photo_url;
+
+      // Set additional attributes (optional)
+      image.alt = "Image description";
+      image.width = 200;
+      image.height = 150;
+
+      // Append the image element to the document body or any other element
+      document.body.appendChild(image);
+    </script>
   </head>
   <body>
     Hi
