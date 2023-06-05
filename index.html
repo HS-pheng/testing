@@ -12,57 +12,59 @@
       const telegram = window.Telegram.WebApp;
       const data = telegram.initDataUnsafe;
 
-      console.log(data);
+      var temp = document.createElement("h2");
 
-      function parseQueryString(queryString) {
-        var params = {};
-        var pairs = queryString.slice(1).split("&");
+      temp.innerText = `data: ${JSON.stringify(data)}`;
 
-        for (var i = 0; i < pairs.length; i++) {
-          var pair = pairs[i].split("=");
-          var key = decodeURIComponent(pair[0]);
-          var value = decodeURIComponent(pair[1] || "");
+      // function parseQueryString(queryString) {
+      //   var params = {};
+      //   var pairs = queryString.slice(1).split("&");
 
-          if (params[key]) {
-            if (Array.isArray(params[key])) {
-              params[key].push(value);
-            } else {
-              params[key] = [params[key], value];
-            }
-          } else {
-            params[key] = value;
-          }
-        }
+      //   for (var i = 0; i < pairs.length; i++) {
+      //     var pair = pairs[i].split("=");
+      //     var key = decodeURIComponent(pair[0]);
+      //     var value = decodeURIComponent(pair[1] || "");
 
-        return params;
-      }
+      //     if (params[key]) {
+      //       if (Array.isArray(params[key])) {
+      //         params[key].push(value);
+      //       } else {
+      //         params[key] = [params[key], value];
+      //       }
+      //     } else {
+      //       params[key] = value;
+      //     }
+      //   }
 
-      // Get the query string from the current URL
-      var url = window.location.search;
-      var parsedParams = parseQueryString(url);
+      //   return params;
+      // }
 
-      // Create the h2 element
-      var heading = document.createElement("h2");
+      // // Get the query string from the current URL
+      // var url = window.location.search;
+      // var parsedParams = parseQueryString(url);
 
-      // Set the text content of the h2 element
-      heading.textContent = `Hi ${parsedParams.username}`;
+      // // Create the h2 element
+      // var heading = document.createElement("h2");
 
-      // Append the h2 element to the body of the document
-      document.body.appendChild(heading);
+      // // Set the text content of the h2 element
+      // heading.textContent = `Hi ${parsedParams.username}`;
 
-      // Create a new image element
-      var image = document.createElement("img");
+      // // Append the h2 element to the body of the document
+      // document.body.appendChild(heading);
 
-      // Set the source URL of the image
-      image.src = parsedParams.photo_url;
+      // // Create a new image element
+      // var image = document.createElement("img");
 
-      // Set additional attributes (optional)
-      image.alt = "Image description";
-      image.width = 200;
-      image.height = 150;
+      // // Set the source URL of the image
+      // image.src = parsedParams.photo_url;
 
-      // Append the image element to the document body or any other element
-      document.body.appendChild(image);
+      // // Set additional attributes (optional)
+      // image.alt = "Image description";
+      // image.width = 200;
+      // image.height = 150;
+
+      // // Append the image element to the document body or any other element
+      // document.body.appendChild(image);
     </script>
   </body>
 </html>
