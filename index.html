@@ -11,6 +11,10 @@
     <script>
       const telegram = window.Telegram.WebApp;
       const data = telegram.initDataUnsafe;
+      const mainButton = telegram.MainButton;
+
+      mainButton.setText("Main button");
+      mainButton.show();
 
       var temp = document.createElement("h2");
 
