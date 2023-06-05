@@ -15,16 +15,18 @@
     <div id="app">{{ message }}</div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
     <script type="module">
       import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
       createApp({
         data() {
           return {
-            message: "Hello Vue!",
+            message: "Hello HS!",
           };
         },
       }).mount("#app");
-
+    </script>
+    <script>
       const telegram = window.Telegram.WebApp;
       const data = telegram.initDataUnsafe;
       const mainButton = telegram.MainButton;
