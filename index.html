@@ -7,7 +7,13 @@
     <title>Document</title>
   </head>
   <body>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
+      const telegram = window.Telegram.WebApp;
+      const data = telegram.initDataUnsafe;
+
+      console.log(data);
+
       function parseQueryString(queryString) {
         var params = {};
         var pairs = queryString.slice(1).split("&");
