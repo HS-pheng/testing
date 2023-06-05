@@ -12,6 +12,9 @@
       const telegram = window.Telegram.WebApp;
       const data = telegram.initDataUnsafe;
       const mainButton = telegram.MainButton;
+      const backButton = telegram.backButton;
+
+      backButton.show();
 
       mainButton.setText("Main button");
       mainButton.show();
