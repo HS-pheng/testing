@@ -5,10 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@3.3.2/dist/vuetify.min.css"
+    />
   </head>
   <body>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@3.3.2/dist/vuetify.min.js"></script>
+
+    <div id="app">{{ message }}</div>
+
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script>
+    <script type="module">
+      import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+      createApp({
+        data() {
+          return {
+            message: "Hello Vue!",
+          };
+        },
+      }).mount("#app");
+
       const telegram = window.Telegram.WebApp;
       const data = telegram.initDataUnsafe;
       const mainButton = telegram.MainButton;
@@ -23,54 +39,6 @@
 
       temp.innerText = `data: ${JSON.stringify(data)}`;
 
-      // function parseQueryString(queryString) {
-      //   var params = {};
-      //   var pairs = queryString.slice(1).split("&");
-
-      //   for (var i = 0; i < pairs.length; i++) {
-      //     var pair = pairs[i].split("=");
-      //     var key = decodeURIComponent(pair[0]);
-      //     var value = decodeURIComponent(pair[1] || "");
-
-      //     if (params[key]) {
-      //       if (Array.isArray(params[key])) {
-      //         params[key].push(value);
-      //       } else {
-      //         params[key] = [params[key], value];
-      //       }
-      //     } else {
-      //       params[key] = value;
-      //     }
-      //   }
-
-      //   return params;
-      // }
-
-      // // Get the query string from the current URL
-      // var url = window.location.search;
-      // var parsedParams = parseQueryString(url);
-
-      // // Create the h2 element
-      // var heading = document.createElement("h2");
-
-      // // Set the text content of the h2 element
-      // heading.textContent = `Hi ${parsedParams.username}`;
-
-      // // Append the h2 element to the body of the document
-      // document.body.appendChild(heading);
-
-      // // Create a new image element
-      // var image = document.createElement("img");
-
-      // // Set the source URL of the image
-      // image.src = parsedParams.photo_url;
-
-      // // Set additional attributes (optional)
-      // image.alt = "Image description";
-      // image.width = 200;
-      // image.height = 150;
-
-      // // Append the image element to the document body or any other element
       document.body.appendChild(temp);
     </script>
   </body>
