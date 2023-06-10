@@ -61,7 +61,7 @@
           }),
         });
 
-        const lists = await res.json();
+        const lists = (await res.json()).data;
 
         lists.forEach(function (list) {
           var listLink = document.createElement("div");
