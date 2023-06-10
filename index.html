@@ -59,7 +59,8 @@
           headers: { Authentication: username },
         });
 
-        const lists = (await res.json()).data;
+        const response = await res.json();
+        const lists = response.data;
 
         lists.forEach(function (list) {
           var listLink = document.createElement("div");
