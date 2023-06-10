@@ -13,6 +13,7 @@
   <body>
     <div class="container mt-5">
       <h1>All To-Do Lists</h1>
+      <h3 id="user"></h3>
       <ul id="listContainer" class="list-group">
         <!-- To-Do Lists will be dynamically added here -->
       </ul>
@@ -52,6 +53,8 @@
     <script>
       const telegram = window.Telegram.WebApp;
       const data = telegram.initDataUnsafe;
+      const username = data.user.username;
+      document.querySelector("#user").innerText = `${username}'s todo`;
       const mainButton = telegram.MainButton;
       const backButton = telegram.BackButton;
 
