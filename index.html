@@ -47,7 +47,7 @@
     </script>
     <script>
       // Load all to-do lists from local storage or fetch from server
-      async function loadLists() {
+      const loadLists = async () => {
         var listContainer = document.getElementById("listContainer");
 
         // Fetch the lists and populate the listContainer
@@ -67,10 +67,10 @@
           listLink.appendChild(document.createTextNode(list.name));
           listContainer.appendChild(listLink);
         });
-      }
+      };
 
       // Call the loadLists function when the page loads
-      window.onload = await loadLists;
+      window.onload = loadLists;
     </script>
   </body>
 </html>
