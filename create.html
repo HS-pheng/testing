@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create To-Do List</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <h1>Create To-Do List</h1>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          id="listNameInput"
+          class="form-control"
+          placeholder="Enter list name"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" id="createListBtn">
+            Create List
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div
+      class="modal fade"
+      id="successModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="successModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="successModalLabel">Success!</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">List created successfully!</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script>
+      // Create List
+      function createList() {
+        var listNameInput = document.getElementById("listNameInput");
+
+        if (listNameInput.value === "") {
+          return;
+        }
+
+        // Save the list name to local storage or send to server
+        // ...
+
+        listNameInput.value = "";
+        $("#successModal").modal("show");
+      }
+
+      // Handle modal hidden event
+      $("#successModal").on("hidden.bs.modal", function () {
+        // Redirect to another page
+        window.location.href = "todo.html";
+      });
+
+      // Event Listeners
+      document
+        .getElementById("createListBtn")
+        .addEventListener("click", createList);
+      document
+        .getElementById("listNameInput")
+        .addEventListener("keydown", function (event) {
+          if (event.keyCode === 13) {
+            createList();
+          }
+        });
+    </script>
+  </body>
+</html>
