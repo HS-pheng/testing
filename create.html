@@ -89,15 +89,10 @@
         }
 
         // Save the list name to local storage or send to server
-        // ...
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
         fetch(
           `https://94ee-203-144-80-115.ap.ngrok.io/tasks?username=Hongsrenggg`,
           {
             method: "POST",
-            headers: myHeaders,
             body: JSON.stringify({
               name: listNameInput.value,
             }),
