@@ -86,15 +86,14 @@
       backButton.show();
 
       // Create List
-      function createList() {
+      async function createList() {
         var listNameInput = document.getElementById("listNameInput");
 
         if (listNameInput.value === "") {
           return;
         }
 
-        // Save the list name to local storage or send to server
-        fetch(
+        await fetch(
           `https://fb12-203-144-80-115.ngrok-free.app/tasks?username=${username}`,
           {
             method: "POST",

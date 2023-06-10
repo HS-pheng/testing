@@ -15,6 +15,9 @@
       <h1>All To-Do Lists</h1>
       <h3 id="user"></h3>
       <ul id="listContainer" class="list-group">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
         <!-- To-Do Lists will be dynamically added here -->
       </ul>
     </div>
@@ -66,6 +69,9 @@
 
         const response = await res.json();
         const lists = response.data;
+
+        const spinner = document.querySelector(".spinner-border");
+        spinner.remove();
 
         lists.forEach(function (list) {
           var listLink = document.createElement("div");
