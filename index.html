@@ -27,6 +27,7 @@
       const telegram = window.Telegram.WebApp;
       const data = telegram.initDataUnsafe;
       const username = data.user.username;
+      localStorage.setItem("username", username);
       document.querySelector("#user").innerText = `${username}'s todo`;
       const mainButton = telegram.MainButton;
       const backButton = telegram.BackButton;
