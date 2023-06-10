@@ -54,7 +54,9 @@
       const telegram = window.Telegram.WebApp;
       const data = telegram.initDataUnsafe;
       const mainButton = telegram.MainButton;
-      const backButton = telegram.backButton;
+      const backButton = telegram.BackButton;
+
+      backButton.hide();
 
       mainButton.setText("Create");
       mainButton.onClick(() => {
