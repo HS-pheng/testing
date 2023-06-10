@@ -57,19 +57,16 @@
       const backButton = telegram.backButton;
 
       mainButton.setText("Create");
-      mainButton.onClick = () => {
+      mainButton.onClick(() => {
         window.location.href = "create.html";
-      };
+        console.log("clicked");
+      });
 
       mainButton.show();
 
       var temp = document.createElement("h2");
 
       temp.innerText = `data: ${JSON.stringify(data)}`;
-
-      document.body.appendChild(temp);
-      console.log(data);
-      console.log(mainButton);
     </script>
   </body>
 </html>
