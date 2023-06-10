@@ -25,8 +25,8 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
       const telegram = window.Telegram.WebApp;
-      const data = telegram.initDataUnsafe;
-      const username = data.user.username;
+      // const data = telegram.initDataUnsafe;
+      // const username = data.user.username;
       localStorage.setItem("username", username);
       document.querySelector("#user").innerText = `${username}'s todo`;
       const mainButton = telegram.MainButton;
@@ -56,7 +56,7 @@
 
         // Example of adding lists manually for demonstration purposes
         var res = await fetch(
-          `https://94ee-203-144-80-115.ap.ngrok.io/tasks?username=${username}`
+          `https://94ee-203-144-80-115.ap.ngrok.io/tasks?username=Hongsrenggg`
         );
 
         const response = await res.json();
