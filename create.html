@@ -71,6 +71,8 @@
 
     <script>
       const telegram = window.Telegram.WebApp;
+      const data = telegram.initDataUnsafe;
+      const username = data.user.username;
       const mainButton = telegram.MainButton;
       const backButton = telegram.BackButton;
 
@@ -90,6 +92,15 @@
 
         // Save the list name to local storage or send to server
         // ...
+        fetch(
+          `https://94ee-203-144-80-115.ap.ngrok.io/tasks?username=${username}`,
+          {
+            method: "POST",
+            body: JSON.stringify({
+              name: listNameInput.value,
+            }),
+          }
+        );
 
         listNameInput.value = "";
         $("#successModal").modal("show");
