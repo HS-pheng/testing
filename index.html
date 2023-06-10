@@ -23,33 +23,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-    <script>
-      // Load all to-do lists from local storage or fetch from server
-      function loadLists() {
-        var listContainer = document.getElementById("listContainer");
-
-        // Fetch the lists and populate the listContainer
-        // ...
-
-        // Example of adding lists manually for demonstration purposes
-        var lists = [
-          { name: "Shopping List", id: 1 },
-          { name: "Work Tasks", id: 2 },
-          { name: "Personal Goals", id: 3 },
-        ];
-
-        lists.forEach(function (list) {
-          var listLink = document.createElement("div");
-          listLink.className = "list-group-item list-group-item-action";
-          listLink.appendChild(document.createTextNode(list.name));
-          listContainer.appendChild(listLink);
-        });
-      }
-
-      // Call the loadLists function when the page loads
-      window.onload = loadLists;
-    </script>
     <script>
       const telegram = window.Telegram.WebApp;
       const data = telegram.initDataUnsafe;
@@ -71,6 +44,35 @@
       var temp = document.createElement("h2");
 
       temp.innerText = `data: ${JSON.stringify(data)}`;
+    </script>
+    <script>
+      // Load all to-do lists from local storage or fetch from server
+      async function loadLists() {
+        var listContainer = document.getElementById("listContainer");
+
+        // Fetch the lists and populate the listContainer
+        // ...
+
+        // Example of adding lists manually for demonstration purposes
+        var res = await fetch("https://b7a7-203-144-80-115.ap.ngrok.io/tasks", {
+          method: "GET",
+          body: JSON.stringify({
+            username: username,
+          }),
+        });
+
+        const lists = await res.json();
+
+        lists.forEach(function (list) {
+          var listLink = document.createElement("div");
+          listLink.className = "list-group-item list-group-item-action";
+          listLink.appendChild(document.createTextNode(list.name));
+          listContainer.appendChild(listLink);
+        });
+      }
+
+      // Call the loadLists function when the page loads
+      window.onload = loadLists;
     </script>
   </body>
 </html>
