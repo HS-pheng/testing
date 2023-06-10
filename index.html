@@ -39,7 +39,7 @@
         ];
 
         lists.forEach(function (list) {
-          var listLink = document.createElement("a");
+          var listLink = document.createElement("div");
           listLink.className = "list-group-item list-group-item-action";
           listLink.appendChild(document.createTextNode(list.name));
           listContainer.appendChild(listLink);
