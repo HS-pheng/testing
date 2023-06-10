@@ -56,9 +56,7 @@
         // Example of adding lists manually for demonstration purposes
         var res = await fetch("https://b7a7-203-144-80-115.ap.ngrok.io/tasks", {
           method: "GET",
-          body: JSON.stringify({
-            username: username,
-          }),
+          headers: { Authentication: username },
         });
 
         const lists = (await res.json()).data;
