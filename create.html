@@ -71,10 +71,7 @@
 
     <script>
       const telegram = window.Telegram.WebApp;
-      const username = localStorage.getItem("username") ?? "nothing";
-      const p = document.createElement("div");
-      p.innerText = username;
-      document.body.append(p);
+      const username = localStorage.getItem("username") ?? "";
 
       const mainButton = telegram.MainButton;
       const backButton = telegram.BackButton;
