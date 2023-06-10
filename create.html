@@ -96,6 +96,10 @@
           `https://94ee-203-144-80-115.ap.ngrok.io/tasks?username=${username}`,
           {
             method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
             body: JSON.stringify({
               name: listNameInput.value,
             }),
