@@ -95,6 +95,10 @@
           `https://e4aa-203-144-80-115.ngrok-free.app/tasks?username=${username}`,
           {
             method: "POST",
+            headers: new Headers({
+              "ngrok-skip-browser-warning": "69420",
+              "content-type": "application/json",
+            }),
             body: JSON.stringify({
               name: listNameInput.value,
             }),
