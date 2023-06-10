@@ -40,7 +40,6 @@
 
         lists.forEach(function (list) {
           var listLink = document.createElement("a");
-          listLink.href = "todo.html?id=" + list.id; // Link to the individual to-do list page
           listLink.className = "list-group-item list-group-item-action";
           listLink.appendChild(document.createTextNode(list.name));
           listContainer.appendChild(listLink);
